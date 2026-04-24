@@ -376,7 +376,6 @@ def create_performance_dashboard(hour_labels, counts):
         margin={"t": 40, "b": 20, "l": 20, "r": 20},
     )
     return bar_fig
-
 try:
     vectorizer, model = load_model()
     st.success(" Model loaded successfully")
@@ -588,7 +587,6 @@ if uploaded_file is not None:
                     csv_buffer = io.StringIO()
                     df.to_csv(csv_buffer, index=False)
                     csv_data = csv_buffer.getvalue()
-
                     st.download_button(
                         label="📥 Download Results as CSV",
                         data=csv_data,
@@ -596,7 +594,6 @@ if uploaded_file is not None:
                         mime="text/csv",
                         key="download_csv"
                     )
-
     except Exception as e:
         st.error(f"Error processing file: {e}")
 
