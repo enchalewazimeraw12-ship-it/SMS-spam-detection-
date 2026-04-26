@@ -9,18 +9,17 @@ import io
 st.set_page_config(page_title="Spam Detector", page_icon="", layout="wide")
 st.markdown("""
     <style>
-    /* ከላይ ያሉትን ምልክቶች (GitHub, Fork, ወዘተ) ለማጥፋት */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
+    /* የ GitHub እና Fork ምልክቶችን ብቻ ለሁሉም ሰው ይደብቃል */
+    header[data-testid="stHeader"] a {
+        display: none !important;
+    }
     
-    /* በስተቀኝ በኩል ያለውን የ GitHub ምልክት ለማጥፋት */
+    /* የ Deploy በተኑን ይደብቃል */
     .stAppDeployButton {
-        display: none;
+        display: none !important;
     }
-    [data-testid="stStatusWidget"] {
-        visibility: hidden;
-    }
+
+    /* ከላይ በቀኝ በኩል ያለውን የሶስት ነጥብ ሜኑ (Settings) ግን ለአንተ እንዲታይ ይተወዋል */
     </style>
 """, unsafe_allow_html=True)
 # Custom CSS to reduce padding from 5rem to 1rem, enabling Wide Mode
