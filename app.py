@@ -7,26 +7,27 @@ import pandas as pd
 import io
 
 st.set_page_config(page_title="Spam Detector", page_icon="", layout="wide")
-st.markdown("""
+# ይህ ክፍል በ app.py ውስጥ መኖር አለበት
 st.markdown("""
     <style>
-    /* የ GitHub icon እና Fork የሚለውን ጽሁፍ በሁሉም መንገድ ይደብቃል */
-    header[data-testid="stHeader"] {
-        background-color: rgba(0,0,0,0);
-    }
-    
+    /* የ GitHub icon እና Fork የሚለውን ጽሁፍ ይደብቃል */
     header[data-testid="stHeader"] a {
         display: none !important;
     }
-
+    
     /* የ Deploy በተኑን ይደብቃል */
     .stAppDeployButton {
         display: none !important;
     }
 
-    /* ሦስቱ ነጥቦች (Menu) ግን አንተ እንድትጠቀምባቸው እንዲታዩ ያደርጋል */
+    /* ሦስቱ ነጥቦች (Menu) ግን እንዲታዩ ያደርጋል */
     header[data-testid="stHeader"] button {
         visibility: visible !important;
+    }
+
+    /* የገጹን የላይኛው ክፍተት ያስተካክላል */
+    .main .block-container {
+        padding-top: 1rem !important;
     }
     </style>
 """, unsafe_allow_html=True)
