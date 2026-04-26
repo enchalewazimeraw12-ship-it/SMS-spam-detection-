@@ -10,8 +10,8 @@ st.set_page_config(page_title="Spam Detector", page_icon="", layout="wide")
 # ይህ ክፍል በ app.py ውስጥ መኖር አለበት
 st.markdown("""
     <style>
-    /* የ GitHub icon እና Fork የሚለውን ጽሁፍ ይደብቃል */
-    header[data-testid="stHeader"] a {
+    /* የ GitHub icon እና Fork የሚለውን ጽሁፍ በጭራሽ እንዳይታዩ ያደርጋል */
+    [data-testid="stHeaderActionSet"] {
         display: none !important;
     }
     
@@ -21,13 +21,13 @@ st.markdown("""
     }
 
     /* ሦስቱ ነጥቦች (Menu) ግን እንዲታዩ ያደርጋል */
-    header[data-testid="stHeader"] button {
-        visibility: visible !important;
+    [data-testid="stStatusWidget"] {
+        visibility: hidden !important;
     }
 
     /* የገጹን የላይኛው ክፍተት ያስተካክላል */
     .main .block-container {
-        padding-top: 1rem !important;
+        padding-top: 2rem !important;
     }
     </style>
 """, unsafe_allow_html=True)
