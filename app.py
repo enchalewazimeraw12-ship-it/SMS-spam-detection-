@@ -10,8 +10,10 @@ st.set_page_config(page_title="Spam Detector", page_icon="", layout="wide")
 # ይህ ክፍል በ app.py ውስጥ መኖር አለበት
 st.markdown("""
     <style>
-    /* 1. የ GitHub እና Fork ሊንኮችን ብቻ ለይቶ ያጠፋል */
-    header[data-testid="stHeader"] a {
+    /* 1. የ GitHub icon እና Fork የሚለውን ሊንክ ብቻ ለይቶ ያጠፋል */
+    header[data-testid="stHeader"] a[href*="github.com"], 
+    header[data-testid="stHeader"] a[title*="GitHub"],
+    header[data-testid="stHeader"] a[aria-label*="view source"] {
         display: none !important;
     }
     
@@ -20,20 +22,20 @@ st.markdown("""
         display: none !important;
     }
 
-    /* 3. ሦስቱ ነጥቦች (Menu) እና ውስጥ ያሉት ነገሮች (Print, Mode) እንዲታዩ ያደርጋል */
+    /* 3. ሦስቱ ነጥቦች (Menu) ግን እንዲታዩ እና እንዲሰሩ ያደርጋል */
     header[data-testid="stHeader"] button {
         visibility: visible !important;
+        opacity: 1 !important;
     }
 
-    /* 4. ጥቁር መስመሩ (Header) ራሱ እንዲታይ መደረግ አለበት ሜኑው እንዲታይ */
+    /* 4. ጥቁር መስመሩ (Header) ራሱ እንዲታይ መደረግ አለበት */
     header[data-testid="stHeader"] {
         visibility: visible !important;
-        background-color: rgba(0,0,0,0) !important;
     }
 
     /* የገጹን የላይኛው ክፍተት ማስተካከያ */
     .main .block-container {
-        padding-top: 2rem !important;
+        padding-top: 1.5rem !important;
     }
     </style>
 """, unsafe_allow_html=True)
