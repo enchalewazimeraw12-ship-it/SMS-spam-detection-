@@ -11,28 +11,20 @@ st.set_page_config(page_title="Spam Detector", page_icon="", layout="wide")
 # ይህ ኮድ የግድ መጀመሪያ አካባቢ መሆን አለበት
 st.markdown("""
     <style>
-    /* 1. ሁሉንም የHeader ሊንኮች በሙሉ ኃይል መደበቅ */
-    header a, [data-testid="stHeaderActionSet"] a {
-        display: none !important;
-        visibility: hidden !important;
-        width: 0 !important;
-        height: 0 !important;
-    }
-
-    /* 2. የ Deploy በተንን መደበቅ */
-    .stAppDeployButton {
+    /* ሊንኮቹን የያዘውን ሙሉ Div መደበቅ */
+    div[data-testid="stHeaderActionSet"] {
         display: none !important;
     }
 
-    /* 3. ሦስቱን ነጥቦች (Menu) ብቻ መልሶ ማሳየት */
-    header button:last-child {
+    /* ሦስቱ ነጥቦች (Menu) ብቻ እንዲታዩ ማድረግ */
+    button[data-testid="stHeaderMenu"] {
         display: inline-flex !important;
         visibility: visible !important;
     }
 
-    /* 4. የላይኛውን ነጭ/ጥቁር መስመር ቁመት መቀነስ */
-    header[data-testid="stHeader"] {
-        height: 3rem !important;
+    /* Deploy በተኑን ማጥፋት */
+    .stAppDeployButton {
+        display: none !important;
     }
     </style>
 """, unsafe_allow_html=True)
