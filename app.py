@@ -11,20 +11,34 @@ st.set_page_config(page_title="Spam Detector", page_icon="", layout="wide")
 # ይህ ኮድ የግድ መጀመሪያ አካባቢ መሆን አለበት
 st.markdown("""
     <style>
-    /* ሊንኮቹን የያዘውን ሙሉ Div መደበቅ */
-    div[data-testid="stHeaderActionSet"] {
+    /* 1. ማንኛውም ወደ GitHub የሚወስድ ሊንክን በሙሉ መደበቅ */
+    a[href*="github.com"] {
+        display: none !important;
+        visibility: hidden !important;
+        width: 0px !important;
+        height: 0px !important;
+        overflow: hidden !important;
+    }
+
+    /* 2. የ GitHub icon ያለበትን span መደበቅ */
+    span:has(svg[viewBox*="0 0 16 16"]) {
         display: none !important;
     }
 
-    /* ሦስቱ ነጥቦች (Menu) ብቻ እንዲታዩ ማድረግ */
-    button[data-testid="stHeaderMenu"] {
-        display: inline-flex !important;
-        visibility: visible !important;
+    /* 3. 'Fork' የሚለውን ጽሁፍ የያዘውን ኤለመንት መደበቅ */
+    span:contains("Fork"), a:contains("Fork") {
+        display: none !important;
     }
 
-    /* Deploy በተኑን ማጥፋት */
+    /* 4. የ Deploy በተንን መደበቅ */
     .stAppDeployButton {
         display: none !important;
+    }
+
+    /* 5. ሦስቱ ነጥቦች (Menu) ግን እንዲታዩ ማድረግ */
+    [data-testid="stHeaderMenu"] {
+        display: inline-flex !important;
+        visibility: visible !important;
     }
     </style>
 """, unsafe_allow_html=True)
