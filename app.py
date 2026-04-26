@@ -8,18 +8,23 @@ import io
 
 st.set_page_config(page_title="Spam Detector", page_icon="", layout="wide")
 st.markdown("""
+st.markdown("""
     <style>
-    /* የ GitHub icon እና Fork የሚለውን ጽሁፍ ለሁሉም ሰው ይደብቃል */
+    /* የ GitHub icon እና Fork የሚለውን ጽሁፍ በሁሉም መንገድ ይደብቃል */
+    header[data-testid="stHeader"] {
+        background-color: rgba(0,0,0,0);
+    }
+    
     header[data-testid="stHeader"] a {
         display: none !important;
     }
-    
-    /* በቀኝ በኩል ያለውን የ Deploy በተን ይደብቃል */
+
+    /* የ Deploy በተኑን ይደብቃል */
     .stAppDeployButton {
         display: none !important;
     }
 
-    /* ሦስቱ ነጥቦች (Menu) ግን እንዲታዩ ይተዋቸዋል */
+    /* ሦስቱ ነጥቦች (Menu) ግን አንተ እንድትጠቀምባቸው እንዲታዩ ያደርጋል */
     header[data-testid="stHeader"] button {
         visibility: visible !important;
     }
