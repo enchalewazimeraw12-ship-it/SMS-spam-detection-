@@ -10,27 +10,28 @@ st.set_page_config(page_title="Spam Detector", page_icon="", layout="wide")
 # ይህ ክፍል በ app.py ውስጥ መኖር አለበት
 st.markdown("""
     <style>
-    /* 1. የ GitHub icon እና Fork የሚለውን ሊንክ ብቻ ለይቶ ያጠፋል */
-    header[data-testid="stHeader"] a[href*="github.com"], 
-    header[data-testid="stHeader"] a[title*="GitHub"],
-    header[data-testid="stHeader"] a[aria-label*="view source"] {
+    /* 1. የ GitHub እና Fork ምልክቶችን የያዘውን ሙሉ ክፍል መደበቅ */
+    [data-testid="stHeaderActionSet"] {
         display: none !important;
     }
-    
-    /* 2. የ Deploy በተኑን ያጠፋል */
+
+    /* 2. ሦስቱን ነጥቦች (Menu) ብቻ ለይቶ መልሶ ማሳየት */
+    [data-testid="stHeader"] .st-emotion-cache-1pxp943,
+    [data-testid="stHeader"] .st-emotion-cache-6q9sum,
+    header button:last-child {
+        display: inline-flex !important;
+        visibility: visible !important;
+    }
+
+    /* 3. የ Deploy በተኑን ማጥፋት */
     .stAppDeployButton {
         display: none !important;
     }
 
-    /* 3. ሦስቱ ነጥቦች (Menu) ግን እንዲታዩ እና እንዲሰሩ ያደርጋል */
-    header[data-testid="stHeader"] button {
-        visibility: visible !important;
-        opacity: 1 !important;
-    }
-
-    /* 4. ጥቁር መስመሩ (Header) ራሱ እንዲታይ መደረግ አለበት */
+    /* 4. ጥቁር መስመሩ (Header) እንዲታይ ማድረግ */
     header[data-testid="stHeader"] {
         visibility: visible !important;
+        background-color: rgba(0,0,0,0) !important;
     }
 
     /* የገጹን የላይኛው ክፍተት ማስተካከያ */
