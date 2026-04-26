@@ -10,24 +10,31 @@ st.set_page_config(page_title="Spam Detector", page_icon="", layout="wide")
 # ይህ ክፍል በ app.py ውስጥ መኖር አለበት
 st.markdown("""
     <style>
-    /* የ GitHub icon እና Fork የሚለውን ጽሁፍ በጭራሽ እንዳይታዩ ያደርጋል */
-    [data-testid="stHeaderActionSet"] {
-        display: none !important;
+    /* ዘዴ 1፡ የላይኛውን ጥቁር መስመር (Header) ሙሉ በሙሉ መደበቅ */
+    header[data-testid="stHeader"] {
+        visibility: hidden;
+        height: 0% !important;
     }
     
-    /* የ Deploy በተኑን ይደብቃል */
+    /* ዘዴ 2፡ ማንኛውንም የ GitHub/Fork ሊንክ መደበቅ */
+    a[href*="github.com"] {
+        display: none !important;
+    }
+
+    /* ዘዴ 3፡ የዲፕሎይ በተኑን መደበቅ */
     .stAppDeployButton {
         display: none !important;
     }
 
-    /* ሦስቱ ነጥቦች (Menu) ግን እንዲታዩ ያደርጋል */
-    [data-testid="stStatusWidget"] {
-        visibility: hidden !important;
+    /* ዘዴ 4፡ ሦስቱ ነጥቦች (Menu) ግን እንዲታዩ ከፈለግክ ይህን ተጠቀም */
+    /* ካልፈለግካቸው ግን ይህን ክፍል አጥፋው */
+    [data-testid="stHeaderActionSet"] button {
+        visibility: visible !important;
     }
 
-    /* የገጹን የላይኛው ክፍተት ያስተካክላል */
+    /* የገጹን ይዘት ወደ ላይ ከፍ ማድረግ (ክፍተት እንዳይኖር) */
     .main .block-container {
-        padding-top: 2rem !important;
+        padding-top: 0rem !important;
     }
     </style>
 """, unsafe_allow_html=True)
