@@ -6,60 +6,86 @@ import plotly.graph_objects as go
 import pandas as pd
 import io
 
-st.set_page_config(page_title="Spam Detector", page_icon="")
+st.set_page_config(page_title="Spam Detector", page_icon="", layout="wide")
+
+# Custom CSS to reduce padding from 5rem to 1rem, enabling Wide Mode
 st.markdown("""
 <style>
-.stSidebar {
-    padding: 10px;
-    line-height: 1.5;
-}
-.stSidebar .stExpander {
-    margin-bottom: 10px;
-}
+    .block-container {
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+    /* Ensure main content area uses full width */
+    .stApp > div {
+        max-width: 100% !important;
+    }
+    /* Reduce sidebar padding */
+    .stSidebar {
+        padding: 10px;
+        line-height: 1.5;
+    }
+    .stSidebar .stExpander {
+        margin-bottom: 10px;
+    }
+    /* Persistent footer for Group 11 academic branding */
+    .academic-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        color: #94a3b8;
+        text-align: center;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        border-top: 2px solid #334155;
+        z-index: 9999;
+    }
+    .academic-footer span {
+        color: #38bdf8;
+        font-weight: 600;
+    }
+    /* Add padding to prevent footer overlap */
+    .stApp {
+        padding-bottom: 60px !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 st.markdown(
     """
     <style>
     .dynamic-header {
-        /* Streamlit የራሱን የጽሁፍ ቀለም በራሱ እንዲመርጥ ያደርገዋል */
-        color: var(--text-color); 
         font-size: 2.5rem;
-        paddding left: 30px;
         font-weight: bold;
         text-align: center;
         padding: 20px;
-        /* ለየት እንዲል ከስሩ ቀይ መስመር መጨመር ትችላለህ */
-        # border-bottom: 3px solid #FF4B4B;
-        margin-bottom: 20px;
-        border-radius: 5px solid ;
-       border-width: 2px;
-       
-        position: fixed;
-        top: 15px;
-        left: 0;
-        right: 0;
-        z-index: 1000;
-        
+        margin-bottom: 30px;
+        margin-top: 10px;
+        border-bottom: 2px solid #334155;
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+        border-radius: 8px;
+    }
+    .dynamic-header h1 {
+        margin: 0;
+        padding: 10px 0;
+        color: #f8fafc;
     }
     @media (max-width: 768px) {
-        .fixed-header {
-            left: 0;
+        .dynamic-header {
+            font-size: 1.8rem;
+            padding: 15px;
+            margin-bottom: 20px;
         }
-        h1 {
-            font-size: 1.8rem;  
-
     }
     @media (max-width: 480px) {
-        .fixed-header { 
-            
+        .dynamic-header {
+            font-size: 1.4rem;
+            padding: 10px;
+            margin-bottom: 15px;
         }
-        h1 {
-        top: 2px;
-            font-size: 0.5px; 
-
-        }
-
+    }
     </style>    
     <div class="dynamic-header"><h1>
         ✉️ SMS Spam Detector</h1>
@@ -68,29 +94,33 @@ st.markdown(
     unsafe_allow_html=True
 )
 st.markdown("""
-            <style>
-            .h5{
-            top:30px
-            }
-            @media (max-width: 768px) {
-                .h5 {
-                    font-size: 1rem;  
-                }
-            
-            @media (max-width: 480px) {
-                .h5 {
-            
-                    padding-top: 80px !important;
-                    font-size: 0.9rem;  
-                }
-            }
-
-             </style>
-            <h5 class=h5>Enter your message below and click Predict to classify it as spam or not spam.<h5>
-           
-            """, unsafe_allow_html=True
-    )
-
+<style>
+    .subtitle {
+        font-size: 1.1rem;
+        color: #94a3b8;
+        text-align: center;
+        padding: 15px 20px;
+        margin-bottom: 25px;
+        border-radius: 6px;
+        border-left: 4px solid #38bdf8;
+    }
+    @media (max-width: 768px) {
+        .subtitle {
+            font-size: 1rem;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+        }
+    }
+    @media (max-width: 480px) {
+        .subtitle {
+            font-size: 0.9rem;
+            padding: 10px 12px;
+            margin-bottom: 15px;
+        }
+    }
+</style>
+<h5 class="subtitle">Enter your message below and click Predict to classify it as spam or not spam.</h5>
+""", unsafe_allow_html=True)
 @st.cache_resource
 def load_model():
     vectorizer = joblib.load('models/vectorizer.joblib')
@@ -599,3 +629,10 @@ if uploaded_file is not None:
 
 st.markdown("---")
 st.caption("Spam detector system | Academic project | Group 11")
+
+# Persistent footer for academic accountability
+st.markdown("""
+<div class="academic-footer">
+    📊 <span>by new Technology</span> — SMS Spam Detection System | Academic Project
+</div>
+""", unsafe_allow_html=True)
