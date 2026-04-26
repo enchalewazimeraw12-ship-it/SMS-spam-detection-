@@ -42,6 +42,31 @@ st.markdown("""
     }
     </style>
 """, unsafe_allow_html=True)
+st.markdown("""
+    <style>
+    /* 1. የ GitHub እና Fork ምልክቶችን የያዘውን ሙሉ ክፍል (Action Set) መደበቅ */
+    [data-testid="stHeaderActionSet"] {
+        display: none !important;
+    }
+
+    /* 2. የ Deploy በተኑን መደበቅ */
+    .stAppDeployButton {
+        display: none !important;
+    }
+
+    /* 3. ሦስቱን ነጥቦች (Menu) ብቻ መልሶ ማሳየት */
+    /* ይህ ለውጥ ለማንም ሰው የ GitHub ሊንኩን ይደብቃል */
+    [data-testid="stHeaderMenu"] {
+        display: inline-flex !important;
+        visibility: visible !important;
+    }
+
+    /* 4. በጭራሽ ሊያመልጥ የማይችልበት ተጨማሪ ዘዴ */
+    header a[href*="github.com"] {
+        display: none !important;
+    }
+    </style>
+""", unsafe_allow_html=True)
 # Custom CSS to reduce padding from 5rem to 1rem, enabling Wide Mode
 st.markdown("""
 <style>
