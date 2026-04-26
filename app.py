@@ -10,31 +10,30 @@ st.set_page_config(page_title="Spam Detector", page_icon="", layout="wide")
 # ይህ ክፍል በ app.py ውስጥ መኖር አለበት
 st.markdown("""
     <style>
-    /* ዘዴ 1፡ የላይኛውን ጥቁር መስመር (Header) ሙሉ በሙሉ መደበቅ */
-    header[data-testid="stHeader"] {
-        visibility: hidden;
-        height: 0% !important;
-    }
-    
-    /* ዘዴ 2፡ ማንኛውንም የ GitHub/Fork ሊንክ መደበቅ */
-    a[href*="github.com"] {
+    /* 1. የ GitHub እና Fork ሊንኮችን ብቻ ለይቶ ያጠፋል */
+    header[data-testid="stHeader"] a {
         display: none !important;
     }
-
-    /* ዘዴ 3፡ የዲፕሎይ በተኑን መደበቅ */
+    
+    /* 2. የ Deploy በተኑን ያጠፋል */
     .stAppDeployButton {
         display: none !important;
     }
 
-    /* ዘዴ 4፡ ሦስቱ ነጥቦች (Menu) ግን እንዲታዩ ከፈለግክ ይህን ተጠቀም */
-    /* ካልፈለግካቸው ግን ይህን ክፍል አጥፋው */
-    [data-testid="stHeaderActionSet"] button {
+    /* 3. ሦስቱ ነጥቦች (Menu) እና ውስጥ ያሉት ነገሮች (Print, Mode) እንዲታዩ ያደርጋል */
+    header[data-testid="stHeader"] button {
         visibility: visible !important;
     }
 
-    /* የገጹን ይዘት ወደ ላይ ከፍ ማድረግ (ክፍተት እንዳይኖር) */
+    /* 4. ጥቁር መስመሩ (Header) ራሱ እንዲታይ መደረግ አለበት ሜኑው እንዲታይ */
+    header[data-testid="stHeader"] {
+        visibility: visible !important;
+        background-color: rgba(0,0,0,0) !important;
+    }
+
+    /* የገጹን የላይኛው ክፍተት ማስተካከያ */
     .main .block-container {
-        padding-top: 0rem !important;
+        padding-top: 2rem !important;
     }
     </style>
 """, unsafe_allow_html=True)
