@@ -10,33 +10,32 @@ st.set_page_config(page_title="Spam Detector", page_icon="", layout="wide")
 # ይህ ክፍል በ app.py ውስጥ መኖር አለበት
 st.markdown("""
     <style>
-    /* 1. የ GitHub እና Fork ምልክቶችን የያዘውን ሙሉ ክፍል መደበቅ */
-    [data-testid="stHeaderActionSet"] {
+    /* 1. ሁሉንም የHeader ሊንኮችን (GitHub, Fork, ወዘተ) ማጥፋት */
+    header a {
         display: none !important;
+        visibility: hidden !important;
     }
 
-    /* 2. ሦስቱን ነጥቦች (Menu) ብቻ ለይቶ መልሶ ማሳየት */
-    [data-testid="stHeader"] .st-emotion-cache-1pxp943,
-    [data-testid="stHeader"] .st-emotion-cache-6q9sum,
-    header button:last-child {
-        display: inline-flex !important;
-        visibility: visible !important;
-    }
-
-    /* 3. የ Deploy በተኑን ማጥፋት */
+    /* 2. የ Deploy በተንን ማጥፋት */
     .stAppDeployButton {
         display: none !important;
     }
 
-    /* 4. ጥቁር መስመሩ (Header) እንዲታይ ማድረግ */
-    header[data-testid="stHeader"] {
+    /* 3. ሦስቱን ነጥቦች (Menu) ብቻ ነጥሎ ማሳየት */
+    /* Streamlit ላይ ሜኑው ሁልጊዜ የመጨረሻው Button ነው */
+    header button:last-of-type {
+        display: inline-flex !important;
         visibility: visible !important;
-        background-color: rgba(0,0,0,0) !important;
+    }
+    
+    /* 4. በሜኑው ውስጥ ያሉት ጽሁፎች (Print, Dark mode) እንዲታዩ */
+    .st-emotion-cache-10o49cf {
+        visibility: visible !important;
     }
 
     /* የገጹን የላይኛው ክፍተት ማስተካከያ */
     .main .block-container {
-        padding-top: 1.5rem !important;
+        padding-top: 1rem !important;
     }
     </style>
 """, unsafe_allow_html=True)
