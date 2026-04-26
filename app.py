@@ -7,7 +7,22 @@ import pandas as pd
 import io
 
 st.set_page_config(page_title="Spam Detector", page_icon="", layout="wide")
-
+st.markdown("""
+    <style>
+    /* ከላይ ያሉትን ምልክቶች (GitHub, Fork, ወዘተ) ለማጥፋት */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    
+    /* በስተቀኝ በኩል ያለውን የ GitHub ምልክት ለማጥፋት */
+    .stAppDeployButton {
+        display: none;
+    }
+    [data-testid="stStatusWidget"] {
+        visibility: hidden;
+    }
+    </style>
+""", unsafe_allow_html=True)
 # Custom CSS to reduce padding from 5rem to 1rem, enabling Wide Mode
 st.markdown("""
 <style>
