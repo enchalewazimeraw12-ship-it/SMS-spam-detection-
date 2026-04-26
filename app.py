@@ -8,34 +8,31 @@ import io
 
 st.set_page_config(page_title="Spam Detector", page_icon="", layout="wide")
 # ይህ ክፍል በ app.py ውስጥ መኖር አለበት
+# ይህ ኮድ የግድ መጀመሪያ አካባቢ መሆን አለበት
 st.markdown("""
     <style>
-    /* 1. ሁሉንም የHeader ሊንኮችን (GitHub, Fork, ወዘተ) ማጥፋት */
-    header a {
+    /* 1. ሁሉንም የHeader ሊንኮች በሙሉ ኃይል መደበቅ */
+    header a, [data-testid="stHeaderActionSet"] a {
         display: none !important;
         visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
     }
 
-    /* 2. የ Deploy በተንን ማጥፋት */
+    /* 2. የ Deploy በተንን መደበቅ */
     .stAppDeployButton {
         display: none !important;
     }
 
-    /* 3. ሦስቱን ነጥቦች (Menu) ብቻ ነጥሎ ማሳየት */
-    /* Streamlit ላይ ሜኑው ሁልጊዜ የመጨረሻው Button ነው */
-    header button:last-of-type {
+    /* 3. ሦስቱን ነጥቦች (Menu) ብቻ መልሶ ማሳየት */
+    header button:last-child {
         display: inline-flex !important;
         visibility: visible !important;
     }
-    
-    /* 4. በሜኑው ውስጥ ያሉት ጽሁፎች (Print, Dark mode) እንዲታዩ */
-    .st-emotion-cache-10o49cf {
-        visibility: visible !important;
-    }
 
-    /* የገጹን የላይኛው ክፍተት ማስተካከያ */
-    .main .block-container {
-        padding-top: 1rem !important;
+    /* 4. የላይኛውን ነጭ/ጥቁር መስመር ቁመት መቀነስ */
+    header[data-testid="stHeader"] {
+        height: 3rem !important;
     }
     </style>
 """, unsafe_allow_html=True)
